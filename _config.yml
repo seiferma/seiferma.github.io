@@ -13,16 +13,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
+title: Tech Stuff Archive
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: default
+  A bunch of tech stuff that was hard to know or find back in time.
+  The site is not meant to be a comprehensive tutorial but a memory aid.
+#twitter_username: username
+github_username: seiferma
+minimal_mistakes_skin: air
 search: true
+baseurl: ""
 
 # Build settings
 markdown: kramdown
@@ -31,7 +31,7 @@ remote_theme: mmistakes/minimal-mistakes
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Europe/Berlin # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
@@ -58,34 +58,37 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
+  name   : "Stephan Seifermann"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "Software engineering researcher, homelab enthusiast, self-hosting fan."
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/seiferma"
+    - label: "Docker Cloud"
+      icon: "fab fa-fw fa-docker"
+      url: "https://hub.docker.com/u/seiferma"
+    - label: "DBLP"
+      icon: "ai ai-fw ai-dblp"
+      url: "https://dblp.uni-trier.de/pers/hd/s/Seifermann:Stephan"
+    - label: "Xing"
+      icon: "fab fa-fw fa-xing"
+      url: "https://www.xing.com/profile/Stephan_Seifermann"
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/seiferma"
+    - label: "Docker Cloud"
+      icon: "fab fa-fw fa-docker"
+      url: "https://hub.docker.com/u/seiferma"
+    - label: "DBLP"
+      icon: "ai ai-fw ai-dblp"
+      url: "https://dblp.uni-trier.de/pers/hd/s/Seifermann:Stephan"
+    - label: "Xing"
+      icon: "fab fa-fw fa-xing"
+      url: "https://www.xing.com/profile/Stephan_Seifermann"
 
 defaults:
   # _posts
