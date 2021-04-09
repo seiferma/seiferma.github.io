@@ -183,8 +183,19 @@ Up to now, the DMZ is no DMZ yet. The major characteristic of a DMZ is that it i
 
 However, there is still some other necessary traffic. One common rule is that the DMZ is allowed to answer to traffic from other networks. This covers answers to TCP, ICMP and ICMPv6. For ICMPv6, some further message types are required to make autoconfiguration and proper status reports work. All remaining traffic leaving the `eth0` interface shall be filtered.
 
+In addition, [people](https://keremerkan.net/posts/wireguard-mtu-fixes/) are reporting problems when routing traffic from a subnet through a wireguard tunnel. Somehow, the [path MTU discovery](https://en.wikipedia.org/wiki/Path_MTU_Discovery) does not work, which potentially breaks TCP connections. Quickfixes are explicitly setting the MTU of an host in the DMZ to 1412 (which is the MTU of the wireguard tunnel) or [let a firewall rule adjust the maximum segment size of TCP packages](https://wiki.nftables.org/wiki-nftables/index.php/Mangle_TCP_options), which effectively leads to smaller packages.
+
 {% highlight conf %}
 table inet filter {
+
+  chain forward {
+    
+    type filter hook forward priority 0; policy accept;
+
+    oifname wg-vps tcp flags syn tcp option maxseg size set rt mtu \
+    comment "Fix TCP MTU over wireguard interface."
+
+  }
 
   chain output {
 
@@ -196,7 +207,7 @@ table inet filter {
     oifname eth0 ct state { established, related } accept \
     comment "Accept established traffic to eth0"
 
-    oifname eth0 icmp type echo-reply accept \
+    oifname eth0 icmp type {echo-reply, destination-unreachable, source-quench, time-exceeded, parameter-problem, timestamp-reply, info-reply} accept \
     comment "Accept outgoing echo-reply to eth0"
 
     oifname eth0 icmpv6 type {destination-unreachable, packet-too-big, time-exceeded, parameter-problem, echo-reply, nd-router-advert, nd-router-solicit, nd-neighbor-advert, nd-neighbor-solicit} accept \
