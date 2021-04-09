@@ -23,6 +23,7 @@ github_username: seiferma
 minimal_mistakes_skin: air
 search: true
 baseurl: ""
+repository: seiferma/seiferma.github.io
 
 # Build settings
 markdown: kramdown
