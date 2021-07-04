@@ -1,5 +1,5 @@
 ---
-id: 207
+id: 208
 title: Fixing Stuff After Upgrading to Fedora 34
 last_modified_at: 2021-07-04T19:45:00+02:00
 permalink: /2021/07/04/fixing-stuff-in-fedora-34
