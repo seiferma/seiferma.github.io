@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "webrick"
+gem "csv"
 
 gem "github-pages", group: :jekyll_plugins
 

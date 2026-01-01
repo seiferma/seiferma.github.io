@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "command": "bundle exec jekyll serve --livereload",
+            "name": "Serve",
+            "request": "launch",
+            "type": "node-terminal"
+        }
+    ]
+}

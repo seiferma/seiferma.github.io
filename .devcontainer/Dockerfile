@@ -1,3 +1,4 @@
-FROM alpine:3.16
+FROM alpine:latest
 
-RUN apk add --no-cache ruby-bundler git openssh ruby-dev build-base
+RUN apk add --no-cache git openssh ruby-dev build-base linux-headers
+RUN gem install bundler

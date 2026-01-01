@@ -7,20 +7,21 @@
 	},
 
 	"workspaceMount": "",
-	"runArgs": [ "-e", "JEKYLL_ROOTLESS=true". "--security-opt", "seccomp=unconfined", "--volume=${localWorkspaceFolder}:/workspaces/${localWorkspaceFolderBasename}:Z" ],
+	"runArgs": [ "-e", "JEKYLL_ROOTLESS=true", "--security-opt", "seccomp=unconfined", "--volume=${localWorkspaceFolder}:/workspaces/${localWorkspaceFolderBasename}:Z" ],
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ginfuru.ginfuru-vscode-jekyll-syntax"
+			]
+		}
+	},
 
+	"forwardPorts": [
+		4000
+	],
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": ["ginfuru.ginfuru-vscode-jekyll-syntax"],
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": ["127.0.0.1:4000:4000"],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+	"postCreateCommand": "bundle install"
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	//"remoteUser": "jekyll"
